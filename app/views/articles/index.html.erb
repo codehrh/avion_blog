@@ -1,0 +1,24 @@
+<div class='indexContainer'>
+<h1>Articles</h1>
+<div class='count'>
+Our blog has <%= Article.public_count %> articles and counting!
+</div>
+<ul>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+    <div class='indexList'>
+      <li class='indexListItem'>
+        <a href="/articles/<%= article.id %>">
+          <%= article.title %>
+        </a>
+     </li>
+     </div>
+    <% end %>
+  <% end %>
+</ul>
+<br>
+<br>
+<div class='createLink'>
+<%= link_to "Create New Article", new_article_path %>
+</div>
+</div>
